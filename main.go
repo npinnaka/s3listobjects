@@ -10,7 +10,7 @@ import (
 
 func main() {
 	// Configure the AWS session using the default credentials chain
-	cfg, err := config.LoadDefaultConfig(context.TODO())
+	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion("us-east-1"))
 	if err != nil {
 		panic(err)
 	}
@@ -19,7 +19,7 @@ func main() {
 	client := s3.NewFromConfig(cfg)
 
 	// List objects in a specific bucket
-	bucketName := "your-bucket-name" // Replace with your bucket name
+	bucketName := "my-test-bucket-2023120901" // Replace with your bucket name
 
 	input := &s3.ListObjectsV2Input{
 		Bucket: &bucketName,
